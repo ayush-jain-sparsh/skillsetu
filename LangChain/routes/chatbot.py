@@ -1,6 +1,5 @@
 from flask import Blueprint, request, jsonify 
 from LangChain.services.chat_service import generate
-from app.utils.clean import clean_json
 
 chat_bp = Blueprint('chat_bp', __name__)
 
@@ -22,7 +21,6 @@ def roadmap():
         
         try : 
             response = generate(user_id, prompt)
-            response = clean_json(response)
             return jsonify(response), 200
         except Exception as e:
             return jsonify({"error": str(e)}), 500
