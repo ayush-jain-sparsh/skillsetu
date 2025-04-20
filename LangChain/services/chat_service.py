@@ -15,7 +15,7 @@ def generate(user_id , prompt):
         history = get_history(user_id)
 
     text = chatbot.get_chat()+""" history : """ + history + """ subtopic : """+prompt
-    token = get_token(text)
+    token = get_token.approx_token_count(text)
     if token > 1000000:
         return '{"error": "Token limit exceeded"}'
     model = gemini.model
