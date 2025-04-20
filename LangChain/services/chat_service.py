@@ -5,6 +5,7 @@ from LangChain.utils import get_token
 from LangChain.services.get_history import get_history
 from LangChain.services.add_user import add_user
 from LangChain.services.update_history import update_history
+from app.utils.clean import clean_json
 
 def generate(user_id , prompt):
     client = gemini.client
@@ -42,7 +43,7 @@ def generate(user_id , prompt):
             output = output + chunk.text
         else:
             raise ValueError("chunk.text is not a string!")
-    
+    output = clean_json(output)
     history = history + "\n" + output['summary']
     update_history(user_id , history)
     return output
