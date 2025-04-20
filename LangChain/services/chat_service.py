@@ -44,6 +44,6 @@ def generate(user_id , prompt):
         else:
             raise ValueError("chunk.text is not a string!")
     output = clean_json(output)
-    history = history + "\n" + output['summary']
+    history = output['summary']
     update_history(user_id , history)
     return output
