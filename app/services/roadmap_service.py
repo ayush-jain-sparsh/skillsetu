@@ -5,7 +5,7 @@ from app.utils import gemini
 def generate(task , duration):
     client = gemini.client
 
-    text = roadmap.get_roadmap()+"""Task : """ + task + """ Duration : """+duration
+    text = roadmap.get_roadmap()+"Task : " + task + " Duration : "+duration
     
     model = gemini.model
     contents = [

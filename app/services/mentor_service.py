@@ -5,7 +5,7 @@ from app.utils import gemini
 def generate(task , subtopic):
     client = gemini.client
 
-    text = mentor.get_mentor()+""" Task : """ + task + """ subtopic : """+subtopic
+    text = mentor.get_mentor()+" Task : " + task + " subtopic : "+subtopic
     
     model = gemini.model
     contents = [

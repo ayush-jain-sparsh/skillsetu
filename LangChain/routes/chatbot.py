@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify 
 from LangChain.services.chat_service import generate
+from app.utils.clean import clean_json
 
 chat_bp = Blueprint('chat_bp', __name__)
 

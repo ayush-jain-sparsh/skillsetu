@@ -2,6 +2,7 @@ from flask import Blueprint, request, jsonify
 from app.services.roadmap_service import generate
 from app.utils.clean import clean_json
 
+
 roadmap_bp = Blueprint('roadmap_bp', __name__)
 
 @roadmap_bp.route('/app/roadmap', methods=['GET' , 'POST'])
@@ -23,6 +24,7 @@ def roadmap():
         try : 
             response = generate(task, duration)
             response = clean_json(response)
+            response = {'response' : response}
             return jsonify(response), 200
         except Exception as e:
             return jsonify({"error": str(e)}), 500

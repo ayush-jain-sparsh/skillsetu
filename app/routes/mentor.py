@@ -22,6 +22,7 @@ def mentor():
         try : 
             response = generate(task, subtopic)
             response = {'response' : response}
+            response['response'] = response['response'].replace("\n", "<br>")
             return jsonify(response), 200
         except Exception as e:
             return jsonify({"error": str(e)}), 500

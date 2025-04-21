@@ -15,7 +15,7 @@ def generate(user_id , prompt):
         add_user(user_id)
         history = get_history(user_id)
 
-    text = chatbot.get_chat()+""" history : """ + history + """ subtopic : """+prompt
+    text = chatbot.get_chat()+" history : " + history + " prompt : "+prompt
     token = get_token.approx_token_count(text)
     if token > 1000000:
         return '{"error": "Token limit exceeded"}'
